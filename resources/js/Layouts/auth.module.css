@@ -1,0 +1,136 @@
+.container {
+    min-height: 100vh;
+
+    & > div.sidebar {
+        z-index: 101;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 20vw;
+        background-color: #15283c;
+        overflow-x: hidden;
+        & > div:nth-child(1) {
+            background-color: #2b4159;
+            height: 20vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            & > div:nth-child(1) {
+                background-color: white;
+                border-radius: 100%;
+                padding: 1rem;
+            }
+            & > div:nth-child(2) {
+                color: white;
+                font-weight: bold;
+            }
+        }
+        & > div:nth-child(2) {
+            display: flex;
+            flex-direction: column;
+            margin-top: 2rem;
+            user-select: none;
+            & > a {
+                padding-inline: 20%;
+                padding-block: 0.5rem;
+                display: flex;
+                align-items: center;
+                color: white;
+                cursor: pointer;
+                gap: 1rem;
+                transition: all 0.2s ease-in-out;
+                & > div:nth-child(1) {
+                    font-size: 2rem;
+                }
+                & > * {
+                    transition: all 0.2s ease-in-out;
+                }
+                &:hover {
+                    & > * {
+                        transform: translateX(2rem);
+                    }
+                }
+                &[data-active="true"] {
+                    background-color: #214162;
+                }
+            }
+        }
+    }
+    & > .nav {
+        z-index: 100;
+        position: sticky;
+        top: 0;
+        left: 20vw;
+        width: 80vw;
+        height: 10vh;
+        background-color: #15283c;
+        color: white;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        & > div:nth-child(1) {
+            margin-left: 2rem;
+        }
+        & > div:nth-child(2) {
+            margin-left: auto;
+            width: 10vw;
+            background-color: #009688;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+            justify-content: center;
+            position: relative;
+            
+            & > svg {
+                font-size: 20px; 
+                transition: rotate 0.2s ease-in;
+            }
+            &[data-active="true"] {
+                & > svg:nth-child(2) {
+                    rotate: -180deg;
+                }
+            }
+            & > div {
+                position: absolute;
+                background-color: white;
+                box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Adjust shadow values as needed */
+                border-radius: 4px;
+                top: 100%;
+                width: 100%;
+                left: 0;
+                padding-block: 1rem;
+                transform-origin: top;
+                transform: scaleY(0);
+                transition: transform 0.2s ease-in;
+                &[data-active="true"] {
+                    transform: scaleY(1);
+                }
+                &>a {
+                    color: black;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap : .5rem;
+                    transition: all .2s ease-in;
+                    &>svg {
+                        font-size: 2rem;
+                    }
+                    &:hover {
+                        background-color: #15283c;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+
+    &>.main {
+        margin-left: 20vw;
+        min-height: 100vh;
+        background-color: whitesmoke;
+    }
+}
